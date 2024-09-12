@@ -6,6 +6,6 @@
     </head>
     <body>
         <h1>BONJOUR</h1>
-        Bonjour <strong>{{$username}}</strong>
+        BONJOUR
     </body>
 </html>
