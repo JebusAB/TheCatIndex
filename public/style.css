@@ -13,14 +13,11 @@ input
 {
     margin: 8px 0;
     border-radius: 4px;
-    background-color:black;
-    color: white;
 }
 
 input:focus
 {
-    background-color: white;
-    color: Black;
+
 }
 
 
