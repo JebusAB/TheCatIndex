@@ -1,12 +1,80 @@
-strong
-{
-    color:lime;
-}
-
 body
 {
-    text-align:center;
-    font-family: Impact, serif;
-    color:antiquewhite;
-    background: #18181b;
+    background: lightslategray;
+}
+
+h1
+{
+    text-align: center;
+    color: darkorange;
+}
+
+input
+{
+    margin: 8px 0;
+    border-radius: 4px;
+    background-color:black;
+    color: white;
+}
+
+input:focus
+{
+    background-color: white;
+    color: Black;
+}
+
+
+input[type=text]
+{
+    padding: 8px 4px;
+    border-radius: 8px;
+}
+
+input[type=text]:focus
+{
+    padding: 8px 4px;
+    border-radius: 8px;
+}
+
+form
+{
+
+}
+
+h2
+{
+    text-align: center;
+    color: coral;
+}
+
+p
+{
+    text-align: center;
+}
+
+img
+{
+    width: 300px;
+    height: 300px;
+}
+
+table
+{
+    align-content: center;
+    border-collapse: collapse;
+    padding: 3px;
+    border: 4px solid black;
+}
+
+tr
+{
+    border: 1px solid black;
+    background: gray;
+}
+
+th
+{
+    border: 1px solid black;
+    color: lavender;
+    background: #2d3748;
 }
