@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <link rel="stylesheet" href="/style.css">
-    <title>index</title>
-</head>
-<body>
+@extends ('layout')
+
+@section('Title', 'Index') {{// Donne comme titre 'Index'}}
+
+@section('Content') {{// ce qui est écrit jusqu'a @endsection}}
 <a href="/cats/create">Ajouter un Chat</a>
 <h1>Tous les chats ici</h1>
 <table>
@@ -35,5 +33,4 @@
         </tr>
     @endforeach
 </table>
-</body>
-</html>
+@endsection

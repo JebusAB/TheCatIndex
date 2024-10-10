@@ -14,7 +14,7 @@ class CatController extends Controller
     }
 
     // show
-    public function show($id)
+    public function show(Cat $cat)
     {
         $thatCat = Cat::findOrFail($id);
         return view('show', compact ('thatCat'));
@@ -44,14 +44,13 @@ class CatController extends Controller
     }
 
     // edit
-    public function edit($id)
+    public function edit(Cat $cat)
     {
-        $cat = Cat::find($id);
         return view('edit', compact('cat'));
     }
 
     // update
-    public function update($id)
+    public function update(Cat $cat)
     {
         $validate = request()->validate([
             'name' => 'required',
@@ -60,14 +59,12 @@ class CatController extends Controller
             'birthdate' => 'required',
             'image' => 'nullable|url'
         ]);
-//    $c = new Cat;
-        $c= Cat::find($id);
-        $c->name = request('name');
-        $c->price = request('price');
-        $c->description = request('description');
-        $c->image = request('image');
-        $c->birthdate = request('birthdate');
-        $c->save();
+        $Cat->name = request('name');
+        $Cat->price = request('price');
+        $Cat->description = request('description');
+        $Cat->image = request('image');
+        $Cat->birthdate = request('birthdate');
+        $Cat->save();
         return redirect('/cats/'.$c->id);
     }
 

@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <link rel="stylesheet" href="/style.css">
-    <title>Cat {{$thatCat->id}}</title>
-</head>
-<body>
+@extends ('layout')
+
+@section('Title', 'Show') {{// Donne comme titre 'Index'}}
+
+@section('Content') {{// ce qui est écrit jusqu'a @endsection}}
 <div>
     <img src="{{$thatCat->image}}">
     <h2>Identifiant</h2>
@@ -21,6 +19,4 @@
     <br>
     <a href="/cats">retour</a>
 </div>
-
-</body>
-</html>
+@endsection
