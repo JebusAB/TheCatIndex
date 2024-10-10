@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CatController;
 use Illuminate\Support\Facades\Route;
 
 //Base
@@ -30,75 +31,23 @@ Route::get('/bonjour/{username}', function ($username) {
 use App\Models\Cat;//permet de ce référer à Cat au lieu de App\Models\Cat à chaque fois
 
 //INDEX
-Route::get('/cats',function ()
-{
-    $cats = Cat::all();
-    return view('index', compact('cats'));
-});
+Route::get('/cats',[CatController::class,'index']);
 
 //CREATE
-Route::get('/cats/create',function ()
-{
-    return view('create');
-})->name('cats.create');
+Route::get('/cats/create',[CatController::class,'create'])->name('cats.create');
 
 //STORE
-Route::POST('/cats',function()
-{
-    $validate = request()->validate([
-        'name' => 'required',
-        'price' => 'integer|required',
-    ]);
-    $c = new Cat;
-    $c->name = request('name');
-    $c->price = request('price');
-    $c->description = request('description');
-    $c->image = request('image');
-    $c->birthdate = request('birthdate');
-    $c->save();
-    return redirect('/cats/'.$c->id);
-});
+Route::POST('/cats',[CatController::class,'store']);
 
 //EDIT
-Route::get('/cats/{id}/edit', function ($id)
-{
-    $cat = Cat::find($id);
-    return view('edit', compact('cat'));
-});
+Route::get('/cats/{id}/edit', [CatController::class,'edit']);
 
 //UPDATE
-Route::POST('/cats',function($id)
-{
-    $validate = request()->validate([
-        'name' => 'required',
-        'price' => 'integer|required',
-        'description' => 'required',
-        'birthdate' => 'required',
-        'image' => 'nullable|url'
-    ]);
-//    $c = new Cat;
-    $c= Cat::find($id);
-    $c->name = request('name');
-    $c->price = request('price');
-    $c->description = request('description');
-    $c->image = request('image');
-    $c->birthdate = request('birthdate');
-    $c->save();
-    return redirect('/cats/'.$c->id);
-});
+Route::POST('/cats', [CatController::class,'update']);
 
 //DESTROY
-Route::POST('/cats',function($id)
-{
-    $c = Cat::find($id);
-    $c->delete();
-    return redirect('/cats/');
-});
+Route::POST('/cats', [CatController::class,'destroy']);
 
 //SHOW
-Route::get('/cats/{id}',function ($id)
-{
-    $thatCat = Cat::findOrFail($id);
-    return view('show', compact ('thatCat'));
-});
+Route::get('/cats/{id}', [CatController::class,'show']);
 

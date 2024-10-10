@@ -9,7 +9,7 @@
 <div align="center">
     <form method="POST" action="/cats/{{$cat->id}}">
         @csrf
-        @method patch
+        @method ('patch')
 
         <h2>Nom</h2>
         <input name="name" type="text" value="{{old('name')}}">
