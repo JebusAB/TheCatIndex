@@ -62,15 +62,19 @@ Route::POST('/cats',function()
 //EDIT
 Route::get('/cats/{id}/edit', function ($id)
 {
-    return view('edit');
+    $cat = Cat::find($id);
+    return view('edit', compact('cat'));
 });
 
-//PATCH
+//UPDATE
 Route::POST('/cats',function($id)
 {
     $validate = request()->validate([
         'name' => 'required',
         'price' => 'integer|required',
+        'description' => 'required',
+        'birthdate' => 'required',
+        'image' => 'nullable|url'
     ]);
 //    $c = new Cat;
     $c= Cat::find($id);

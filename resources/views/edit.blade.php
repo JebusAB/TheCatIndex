@@ -7,10 +7,10 @@
 </head>
 <body>
 <div align="center">
-    <form method="POST" action="/cats">
+    <form method="POST" action="/cats/{{$cat->id}}">
+        @csrf
         @method patch
 
-        @csrf
         <h2>Nom</h2>
         <input name="name" type="text" value="{{old('name')}}">
         @error ('name')<p class="w-red500">{{$message}}</p> @enderror
