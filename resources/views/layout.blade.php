@@ -7,7 +7,7 @@
     </title>
 </head>
 <body>
-    <header><h1>CRUD CAT</h1></header>
+    <header><h1>LE SITE LE PLUS [DONNEE SUPPRIMEE] DE TOUS LES TEMPS</h1></header>
 
     <main>
         @yield('Content') {{// c'est sympatique, je l'ai appellé Content :) }}
