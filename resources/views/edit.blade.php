@@ -8,6 +8,8 @@
 <body>
 <div align="center">
     <form method="POST" action="/cats">
+        @method patch
+
         @csrf
         <h2>Nom</h2>
         <input name="name" type="text" value="{{old('name')}}">

@@ -47,7 +47,7 @@ Route::POST('/cats',function()
 {
     $validate = request()->validate([
         'name' => 'required',
-        'price' => 'integer',
+        'price' => 'integer|required',
     ]);
     $c = new Cat;
     $c->name = request('name');
@@ -63,6 +63,32 @@ Route::POST('/cats',function()
 Route::get('/cats/{id}/edit', function ($id)
 {
     return view('edit');
+});
+
+//PATCH
+Route::POST('/cats',function($id)
+{
+    $validate = request()->validate([
+        'name' => 'required',
+        'price' => 'integer|required',
+    ]);
+//    $c = new Cat;
+    $c= Cat::find($id);
+    $c->name = request('name');
+    $c->price = request('price');
+    $c->description = request('description');
+    $c->image = request('image');
+    $c->birthdate = request('birthdate');
+    $c->save();
+    return redirect('/cats/'.$c->id);
+});
+
+//DESTROY
+Route::POST('/cats',function($id)
+{
+    $c = Cat::find($id);
+    $c->delete();
+    return redirect('/cats/');
 });
 
 //SHOW
