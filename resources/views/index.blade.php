@@ -25,7 +25,13 @@
             <td>{{$cat->price}}</td>
             <td>{{$cat->birthdate}}</td>
             <td><a href="/cats/{{$cat->id}}/edit">edit</a></td>
-            <td>delete</td>
+            <td>
+                <form method="post" action="/cats/{{$cat->id}}">
+                    @csrf
+                    @method ('delete')
+                    <button>delete</button>
+                </form>
+            </td>
         </tr>
     @endforeach
 </table>
