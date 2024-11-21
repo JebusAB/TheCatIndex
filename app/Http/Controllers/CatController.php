@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Models\Cat;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
 
 class CatController extends Controller
 {
+
     //index
     public function index()
     {
@@ -16,8 +20,8 @@ class CatController extends Controller
     // show
     public function show(Cat $cat)
     {
-        $thatCat = Cat::findOrFail($id);
-        return view('show', compact ('thatCat'));
+        //$thatCat = Cat::findOrFail($cat);
+        return view('show', compact ('cat'));
     }
 
     // create
@@ -59,13 +63,13 @@ class CatController extends Controller
             'birthdate' => 'required',
             'image' => 'nullable|url'
         ]);
-        $Cat->name = request('name');
-        $Cat->price = request('price');
-        $Cat->description = request('description');
-        $Cat->image = request('image');
-        $Cat->birthdate = request('birthdate');
-        $Cat->save();
-        return redirect('/cats/'.$c->id);
+        $cat->name = request('name');
+        $cat->price = request('price');
+        $cat->description = request('description');
+        $cat->image = request('image');
+        $cat->birthdate = request('birthdate');
+        $cat->save();
+        return redirect('/cats/'.$cat->id);
     }
 
     // destroy

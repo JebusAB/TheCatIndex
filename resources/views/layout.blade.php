@@ -10,9 +10,12 @@
     <header><h1>LE SITE LE PLUS [DONNEE SUPPRIMEE] DE TOUS LES TEMPS</h1></header>
 
     <main>
-        @yield('Content') {{// c'est sympatique, je l'ai appellé Content :) }}
+        @yield('Content')
     </main>
 
-    <footer>Copyright Me (TM)</footer>
+    <footer>
+        <br/>
+        <p>Copyright Me (TM)</p>
+    </footer>
 </body>
 </html>

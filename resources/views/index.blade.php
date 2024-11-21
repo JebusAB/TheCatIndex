@@ -1,8 +1,8 @@
 @extends ('layout')
 
-@section('Title', 'Index') {{// Donne comme titre 'Index'}}
+@section('Title', 'Index')
 
-@section('Content') {{// ce qui est écrit jusqu'a @endsection}}
+@section('Content')
 <a href="/cats/create">Ajouter un Chat</a>
 <h1>Tous les chats ici</h1>
 <table>

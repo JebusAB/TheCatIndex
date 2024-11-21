@@ -1,0 +1,9 @@
+{
+    "cat":"chat",
+    "cats":"chats",
+    "Name":"nom",
+    "price":"prix",
+    "edit":"modifier",
+    "birthdate":"date de Naissance",
+    "delete":"supprimer"
+}

@@ -8,4 +8,3 @@
         <h1>BONJOUR</h1>
         Bonjour <strong>{{$username}}</strong>
     </body>
-</html>
